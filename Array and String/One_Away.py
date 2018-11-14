@@ -53,4 +53,5 @@ def one_away(string1, string2):
     return diff<=1
 
 
-        
+print(one_away("Pale","Bale"))
+print(one_away("Pale","Bali"))        
