@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Nov 26 00:14:44 2018
+
+@author: rishabh
+"""
+
+
+"""
+Program to check if the given two lists have intersection or not
+"""
+
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+        
+        
+class Solution:
+    def getIntersectionNode(self, headA, headB):
+        curA,curB = headA,headB
+        lenA,lenB = 0,0
+        while curA is not None:
+            lenA += 1
+            curA = curA.next
+        while curB is not None:
+            lenB += 1
+            curB = curB.next
+        curA,curB = headA,headB
+        if lenA > lenB:
+            for i in range(lenA-lenB):
+                curA = curA.next
+        elif lenB > lenA:
+            for i in range(lenB-lenA):
+                curB = curB.next
+        while curB != curA:
+            curB = curB.next
+            curA = curA.next
+        return curA
